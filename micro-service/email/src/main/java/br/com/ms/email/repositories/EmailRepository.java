@@ -1,9 +1,0 @@
-package br.com.ms.email.repositories;
-
-import java.util.UUID;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.ms.email.model.EmailModel;
-
-public interface EmailRepository extends JpaRepository<EmailModel, UUID>{}
