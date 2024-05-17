@@ -3,6 +3,7 @@ package br.com.mmjck.placeservice.domain;
 import com.github.slugify.Slugify;
 
 import br.com.mmjck.placeservice.api.PlaceRequestDTO;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public class PlaceService {
@@ -25,5 +26,11 @@ public class PlaceService {
             
         );
         return this.repository.save(place);
+    }
+
+
+
+    public Flux<Place> findAll(){
+        return this.repository.findAll();
     }
 }
