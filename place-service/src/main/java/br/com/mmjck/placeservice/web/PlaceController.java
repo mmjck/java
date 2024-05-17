@@ -42,18 +42,18 @@ public class PlaceController {
     public ResponseEntity<Flux<PlaceResponseDTO>> getAll(@Nullable @RequestParam String name) {
         if(name != null){
             var places = this.placeService.findByName(name.toUpperCase()).map(PlaceMapper::fromPlaceToResponse);
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(places);
+            return ResponseEntity.status(HttpStatus.OK).body(places);
         }
 
         var places = this.placeService.findAll().map(PlaceMapper::fromPlaceToResponse);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(places);
+        return ResponseEntity.status(HttpStatus.OK).body(places);
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<Mono<PlaceResponseDTO>> getById(@PathVariable(value = "id") Long id) {
         var places = this.placeService.getById(id).map(PlaceMapper::fromPlaceToResponse);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(places);
+        return ResponseEntity.status(HttpStatus.OK).body(places);
     }
 
 }
