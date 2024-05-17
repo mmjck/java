@@ -1,6 +1,7 @@
 package br.com.mmjck.placeservice.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.mmjck.placeservice.api.PlaceRequestDTO;
@@ -40,7 +41,12 @@ public class PlaceController {
         var places = this.placeService.findAll().map(PlaceMapper::fromPlaceToResponse);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(places);
     }
-    
-    
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Mono<PlaceResponseDTO>> getById(@RequestParam Long id) {
+        var places = this.placeService.getById(id).map(PlaceMapper::fromPlaceToResponse);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(places);
+    }
     
 }

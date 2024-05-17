@@ -28,9 +28,11 @@ public class PlaceService {
         return this.repository.save(place);
     }
 
-
-
     public Flux<Place> findAll(){
         return this.repository.findAll();
+    }
+
+    public Mono<Place> getById(Long id){
+        return this.repository.findById(id);
     }
 }
