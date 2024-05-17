@@ -35,4 +35,8 @@ public class PlaceService {
     public Mono<Place> getById(Long id){
         return this.repository.findById(id);
     }
+
+    public Flux<Place> findByName(String name){
+        return this.repository.findByName(name);
+    }
 }

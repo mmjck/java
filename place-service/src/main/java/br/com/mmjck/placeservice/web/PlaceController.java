@@ -8,6 +8,7 @@ import br.com.mmjck.placeservice.api.PlaceRequestDTO;
 import br.com.mmjck.placeservice.api.PlaceResponseDTO;
 
 import br.com.mmjck.placeservice.domain.PlaceService;
+import jakarta.annotation.Nullable;
 import jakarta.validation.Valid;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -17,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
@@ -36,17 +38,22 @@ public class PlaceController {
     }
 
 
-    @GetMapping("/")
-    public ResponseEntity<Flux<PlaceResponseDTO>> getAll() {
+    @GetMapping()
+    public ResponseEntity<Flux<PlaceResponseDTO>> getAll(@Nullable @RequestParam String name) {
+        if(name != null){
+            var places = this.placeService.findByName(name.toUpperCase()).map(PlaceMapper::fromPlaceToResponse);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(places);
+        }
+
         var places = this.placeService.findAll().map(PlaceMapper::fromPlaceToResponse);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(places);
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Mono<PlaceResponseDTO>> getById(@RequestParam Long id) {
+    public ResponseEntity<Mono<PlaceResponseDTO>> getById(@PathVariable(value = "id") Long id) {
         var places = this.placeService.getById(id).map(PlaceMapper::fromPlaceToResponse);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(places);
     }
-    
+
 }
