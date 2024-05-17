@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import br.com.mmjck.placeservice.api.PlaceRequestDTO;
+import br.com.mmjck.placeservice.api.PlaceResponseDTO;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class PlaceServiceApplicationTests {
@@ -33,10 +34,6 @@ class PlaceServiceApplicationTests {
 			.jsonPath("slug").isEqualTo(slug)
 			.jsonPath("createdAt").isNotEmpty()
 			.jsonPath("updatedAt").isNotEmpty();
-
-
-
-
 	}
 
 	@Test
@@ -55,10 +52,63 @@ class PlaceServiceApplicationTests {
 			.expectStatus().isBadRequest();
 
 
-
-
 	}
 
+
+
+	@Test
+	public void getAll(){
+		var name = "Valid Name";
+		var state = "Valid State";
+		
+		
+		webTestClient
+			.post()
+			.uri("/places/")
+			.bodyValue(
+				new PlaceRequestDTO(name, state)
+			)
+			.exchange()
+			.expectStatus().isCreated();
+
+		webTestClient
+			.post()
+			.uri("/places/")
+			.bodyValue(
+				new PlaceRequestDTO(name, state)
+			)
+			.exchange()
+			.expectStatus().isCreated();		
+
+		webTestClient
+			.get()
+			.uri("/places")
+			.exchange()
+			.expectStatus().isOk()
+			.expectBodyList(PlaceRequestDTO.class).hasSize(2);
+		}
+
+	@Test
+	public void getById(){
+		var name = "Valid Name";
+		var state = "Valid State";
+		
+		
+		webTestClient
+			.post()
+			.uri("/places/")
+			.bodyValue(
+				new PlaceRequestDTO(name, state)
+			)
+			.exchange()
+			.expectStatus().isCreated();
+
+		webTestClient
+			.get()
+			.uri("/places/1")
+			.exchange()
+			.expectStatus().isOk();
+	}
 
 
 }
