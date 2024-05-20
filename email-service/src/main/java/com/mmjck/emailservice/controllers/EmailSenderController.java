@@ -1,0 +1,42 @@
+package com.mmjck.emailservice.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mmjck.emailservice.application.EmailSenderService;
+import com.mmjck.emailservice.core.EmailRequest;
+import com.mmjck.emailservice.core.exceptions.EmailServiceException;
+
+import org.apache.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+
+@RestController
+@RequestMapping("/api/email")
+public class EmailSenderController {
+
+    private final EmailSenderService emailSenderService;
+
+    @Autowired
+    public EmailSenderController(EmailSenderService service){
+        this.emailSenderService = service;
+    }
+
+
+    @PostMapping
+    public ResponseEntity<String> sendEmail(@RequestBody EmailRequest request) {
+        try {
+            this.emailSenderService.sendEmail(request.to(), request.subject(), request.body());
+            return ResponseEntity.ok().body("E-mail send successfully");
+        } catch (EmailServiceException e) {
+            return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR).body("Error while sending e-mail send");
+        }
+        
+    }
+    
+    
+}
