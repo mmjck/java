@@ -25,7 +25,7 @@ public class TransactionServiceImpl implements TransactionsService {
         var entity = new TransactionEntity();
         entity.setRawCreditCardToken(request.creditCardToken());
         entity.setRawUserDocument(request.userDocument());
-        entity.setTransactionValue(request.value());
+        entity.setTransactionValue(request.transactionValue());
 
         this.repository.save(entity);
     }
