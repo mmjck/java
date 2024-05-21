@@ -1,8 +1,11 @@
 package com.mmjck.cryptography.controllers.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public record CreateTransactionRequest(
-    String userDocument,
-    String creditCardToken,
-    Long value
+    @NotBlank String userDocument,
+    @NotBlank String creditCardToken,
+    @NotNull Long transactionValue
 ) {
 }
