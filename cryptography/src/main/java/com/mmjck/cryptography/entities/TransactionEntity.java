@@ -1,6 +1,7 @@
 package com.mmjck.cryptography.entities;
 
 import com.mmjck.cryptography.service.CryptoService;
+import com.mmjck.cryptography.service.serviceImpl.CryptoServiceImpl;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,10 +24,11 @@ public class TransactionEntity {
     private Long id;
 
     @Column(name = "user_document")
-    @NotBlank
+    @NotBlank(message = "add user_document field")
     private String encryptedUserDocument;
 
     @Column(name = "credit_card_token")
+    @NotBlank(message = "add credit_card_token field")
     private String encryptedCreditCardToken;
 
     @Column(name = "transaction_value")
@@ -90,13 +92,16 @@ public class TransactionEntity {
 
     @PrePersist
     public void prePersist(){
-        this.encryptedCreditCardToken = CryptoService.encrypt(rawCreditCardToken);
-        this.encryptedUserDocument = CryptoService.encrypt(rawUserDocument);
+        CryptoService encryption = new CryptoServiceImpl();
+        this.encryptedCreditCardToken = encryption.encrypt(rawCreditCardToken);
+        this.encryptedUserDocument = encryption.encrypt(rawUserDocument);
     }
 
     @PostLoad
     public void postLoad(){
-        this.rawCreditCardToken = CryptoService.descrypt(encryptedCreditCardToken);
-        this.rawUserDocument = CryptoService.descrypt(encryptedUserDocument);
+        CryptoService encryption = new CryptoServiceImpl();
+
+        this.rawCreditCardToken = encryption.descrypt(encryptedCreditCardToken);
+        this.rawUserDocument = encryption.descrypt(encryptedUserDocument);
     }
 }
