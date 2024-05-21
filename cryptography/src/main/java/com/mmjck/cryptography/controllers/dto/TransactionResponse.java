@@ -6,7 +6,7 @@ public record TransactionResponse(
     Long id,
     String userDocument,
     String creditCardToken,
-    Long token
+    Long value
 ) {
     public static TransactionResponse fromEntity(TransactionEntity entity){
         return new TransactionResponse(
