@@ -18,6 +18,10 @@ import com.mmjck.cryptography.controllers.dto.TransactionResponse;
 import com.mmjck.cryptography.controllers.dto.UpdateTransactionRequest;
 import com.mmjck.cryptography.service.TransactionsService;
 
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.PutMapping;
+
+
 @RestController
 @RequestMapping(value = "/transactions")
 public class TransactionsController {
@@ -26,7 +30,8 @@ public class TransactionsController {
     private TransactionsService service;
 
     @PostMapping("/")
-    public ResponseEntity<Void> create(@RequestBody CreateTransactionRequest request) {
+    public ResponseEntity<Void> create(@Valid @RequestBody CreateTransactionRequest request) {
+
         this.service.create(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -49,23 +54,21 @@ public class TransactionsController {
                 .body(response);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<TransactionResponse> findById(
+    
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable(value = "id") Long id) {
+        this.service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TransactionResponse> update(
                     @PathVariable(value = "id") Long id,
                     @RequestBody UpdateTransactionRequest request
                     ) {
         this.service.update(id, request);
         return ResponseEntity.noContent().build();
     }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(
-                    @PathVariable(value = "id") Long id,
-                    @RequestBody UpdateTransactionRequest request
-                    ) {
-        this.service.delete(id);
-        return ResponseEntity.noContent().build();
-    }
-    
 
 }
