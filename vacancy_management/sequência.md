@@ -1,0 +1,31 @@
+## Sequência
+
+- [x] Criando estrutura do projeto
+- [x] Inserindo validação
+- [x] Formatando mensagem de validação
+<!-- - [ ] Doc: Instalação do Docker -->
+- [x] Inserindo Spring Data JPA
+- [x] Criando tabela de candidato
+- [x] Criando Repositório
+- [x] Validando usuário já existente
+- [x] Use Case
+- [x] Criando entidade Company
+- [x] Entidade Job
+- [x] UseCase: CreateCompany
+- [x] Company Controller
+- [x] Job Controller
+- [x] Spring Security
+- [x] Configurando rotas públicas
+- [x] UseCase: AuthenticateCompany
+- [x] Finalizando UseCase
+- [x] Recuperando JWT
+- [x] Validando Token
+- [x] Refatorando JobController
+- [x] Hash da senha do candidato
+- [x] Criando token de candidato
+- [x] Controller: AuthCandidate
+- [x] Rota de perfil do candidato
+- [x] Filtro de segurança do candidato
+- [x] Filtro de segurança do candidato - Parte 2
+- [x] Configurando PreAuthorize
+- [ ] Refatorando Filtro de Company
