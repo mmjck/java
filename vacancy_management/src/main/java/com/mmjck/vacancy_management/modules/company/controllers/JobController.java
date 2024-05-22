@@ -3,6 +3,7 @@ package com.mmjck.vacancy_management.modules.company.controllers;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,16 +26,24 @@ public class JobController {
 
     @PostMapping("/")
     @PreAuthorize("hasRole('COMPANY')")
-    public JobEntity create(@Valid @RequestBody CreateJobDTO dto, HttpServletRequest request){
+    public ResponseEntity<Object> create(@Valid @RequestBody CreateJobDTO dto, HttpServletRequest request){
         Object companyId = request.getAttribute("company_id");
+            try {
+                JobEntity job = JobEntity.builder()
+                        .companyId(UUID.fromString(companyId.toString()))
+                        .benefits(dto.getBenefits())    
+                        .description(dto.getDescription())
+                        .level(dto.getLevel())
+                        .build();    
+                
+                        var result =  this.useCase.execute(job);
+                return ResponseEntity.ok().body(result);
+            } catch (Exception e) {
+                return ResponseEntity.badRequest().body(e.getMessage());
+            }
+
         
-        JobEntity job = JobEntity.builder()
-            .companyId(UUID.fromString(companyId.toString()))
-            .benefits(dto.getBenefits())    
-            .description(dto.getDescription())
-            .level(dto.getLevel())
-            .build();
         
-        return this.useCase.execute(job);
+        
     }
 }
