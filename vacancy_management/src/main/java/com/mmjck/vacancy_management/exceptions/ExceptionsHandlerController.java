@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 
 @ControllerAdvice
-public class ExpectionsHandlerController {
+public class ExceptionsHandlerController {
     private MessageSource message;
     
-    public ExpectionsHandlerController(MessageSource m){
+    public ExceptionsHandlerController(MessageSource m){
         this.message = m;
     }
     

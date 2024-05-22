@@ -1,6 +1,5 @@
 package com.mmjck.vacancy_management.modules.candidate.useCases;
 
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +16,10 @@ public class ProfileCandidateUseCase {
     @Autowired
     CandidateRepository repository;
 
-
-    
     public ProfileCandidateResponseDTO execute(UUID id){
         CandidateEntity candidate = this.repository.findById(id).orElseThrow(() -> {
             throw new UsernameNotFoundException("User not found");
         });
-
 
         ProfileCandidateResponseDTO dto = ProfileCandidateResponseDTO
             .builder()

@@ -2,9 +2,7 @@ package com.mmjck.vacancy_management.modules.candidate.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mmjck.vacancy_management.exceptions.UserFoundExecption;
 import com.mmjck.vacancy_management.modules.candidate.entities.CandidateEntity;
-import com.mmjck.vacancy_management.modules.candidate.repositories.CandidateRepository;
 import com.mmjck.vacancy_management.modules.candidate.useCases.CreateCandidateUseCase;
 import com.mmjck.vacancy_management.modules.candidate.useCases.ProfileCandidateUseCase;
 
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
