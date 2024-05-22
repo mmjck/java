@@ -1,7 +1,7 @@
 package com.mmjck.vacancy_management.exceptions;
 
-public class UserFoundExecption extends RuntimeException{
-    public UserFoundExecption(){
+public class UserFoundException extends RuntimeException{
+    public UserFoundException(){
         super("User already exists");
     }
 }

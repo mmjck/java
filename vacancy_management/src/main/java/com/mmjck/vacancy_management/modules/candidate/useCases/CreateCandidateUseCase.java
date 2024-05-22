@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.mmjck.vacancy_management.exceptions.UserFoundExecption;
+import com.mmjck.vacancy_management.exceptions.UserFoundException;
 import com.mmjck.vacancy_management.modules.candidate.entities.CandidateEntity;
 import com.mmjck.vacancy_management.modules.candidate.repositories.CandidateRepository;
 
@@ -21,7 +21,7 @@ public class CreateCandidateUseCase {
     
     public CandidateEntity execute(CandidateEntity entity){
         this.candidateRepository.findByUsernameOrEmail(entity.getUsername(), entity.getEmail()).ifPresent((user) ->  {
-            throw new UserFoundExecption();
+            throw new UserFoundException();
         });
 
         
