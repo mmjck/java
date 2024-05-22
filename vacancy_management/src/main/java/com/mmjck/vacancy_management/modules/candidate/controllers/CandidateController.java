@@ -3,6 +3,7 @@ package com.mmjck.vacancy_management.modules.candidate.controllers;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mmjck.vacancy_management.modules.candidate.entities.CandidateEntity;
+import com.mmjck.vacancy_management.modules.candidate.useCases.ApplyJobCandidateUseCase;
 import com.mmjck.vacancy_management.modules.candidate.useCases.CreateCandidateUseCase;
 import com.mmjck.vacancy_management.modules.candidate.useCases.ProfileCandidateUseCase;
 
@@ -19,28 +20,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
-
 @RestController
 @RequestMapping("/candidate")
 public class CandidateController {
 
     @Autowired
-    CreateCandidateUseCase useCase;
-
+    CreateCandidateUseCase createCandidateUseCase;
 
     @Autowired
-    ProfileCandidateUseCase  profileCandidateUseCase;
+    ApplyJobCandidateUseCase applyJobCandidateUseCase;
+
+    @Autowired
+    ProfileCandidateUseCase profileCandidateUseCase;
 
     @PostMapping("/")
-    public ResponseEntity<Object> create(@Valid @RequestBody CandidateEntity entity){
+    public ResponseEntity<Object> create(@Valid @RequestBody CandidateEntity entity) {
         try {
-            var result = this.useCase.execute(entity);    
+            var result = this.createCandidateUseCase.execute(entity);
             return ResponseEntity.ok().body(result);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-        
+
     }
 
     @GetMapping("/")
@@ -54,7 +55,24 @@ public class CandidateController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-        
+
     }
-    
+
+    @PostMapping("/apply-job")
+    @PreAuthorize("hasRole('CANDIDATE')")
+    public ResponseEntity<Object> applyJob(
+            HttpServletRequest request,
+            @RequestBody UUID idJob) {
+        Object candidateId = request.getAttribute("candidate_id");
+
+        try {
+            var response = this.applyJobCandidateUseCase.execute(UUID.fromString(candidateId.toString()), idJob);
+            return ResponseEntity.ok().body(response);
+        } catch (Exception e) {
+            return ResponseEntity.ok().body(e.getMessage());
+
+        }
+
+    }
+
 }
