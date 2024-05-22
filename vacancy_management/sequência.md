@@ -28,4 +28,17 @@
 - [x] Filtro de segurança do candidato
 - [x] Filtro de segurança do candidato - Parte 2
 - [x] Configurando PreAuthorize
-- [ ] Refatorando Filtro de Company
+- [x] Refatorando Filtro de Company
+- [x] O que são testes em uma aplicação?
+- [x] Criando primeiro teste unitário
+- [x] UseCase: ApplyJobCandidate
+- [x] Testando exceções
+- [x] Teste validando se o Job não existe
+- [x] Criando entidade de Apply Job
+- [x] Criando teste de sucesso do apply job
+- [x] Criando controller Apply Job
+- [x] JobController: Criando teste de integração
+- [x] JobController: Finalizando caso de teste de sucesso
+- [x] JobController: Inserindo banco de dados em memória para teste
+- [x] JobController: Criando caso de teste com exceção
+- [ ] JobController: Finalizando caso de teste com exceção
