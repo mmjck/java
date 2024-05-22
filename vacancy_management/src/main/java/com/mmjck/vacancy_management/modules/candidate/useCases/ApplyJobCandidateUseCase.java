@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.mmjck.vacancy_management.exceptions.JobNotFoundException;
 import com.mmjck.vacancy_management.exceptions.UserNotFoundException;
+import com.mmjck.vacancy_management.modules.candidate.entities.ApplyJobEntity;
+import com.mmjck.vacancy_management.modules.candidate.repositories.ApplyJobRepository;
 import com.mmjck.vacancy_management.modules.candidate.repositories.CandidateRepository;
 import com.mmjck.vacancy_management.modules.company.repositories.JobRepository;
 
@@ -19,8 +21,10 @@ public class ApplyJobCandidateUseCase {
     @Autowired
     private JobRepository jobRepository;
 
+    @Autowired
+    private ApplyJobRepository applyJobRepository;
 
-    public void execute(UUID candidateId, UUID jobID){
+    public ApplyJobEntity execute(UUID candidateId, UUID jobID){
 
         this.candidateRepository.findById(candidateId)
             .orElseThrow(() -> {
@@ -32,5 +36,12 @@ public class ApplyJobCandidateUseCase {
                 throw new JobNotFoundException();
             });
 
+        var applyJob = ApplyJobEntity.builder()
+            .candidateId(candidateId)
+            .jobId(jobID)
+            .build();
+            
+        var response = applyJobRepository.save(applyJob);   
+        return response;
     }   
 }
