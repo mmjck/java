@@ -44,13 +44,11 @@ public class ApplyJobEntity {
     private UUID candidateId;
     
     @Column(name = "job_id")
-    private UUID JobId;
-
+    private UUID jobId;
 
 
     @Column(name = "created_at")
     @CreationTimestamp
     private LocalDateTime createdAt;
-
 
 }
