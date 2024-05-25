@@ -20,14 +20,13 @@ public class UrlServiceImpl implements UrlService {
 
     @Override
     public UrlEntity save(UrlEntity data) {
-
-        return this.repository.save(
-            data);
+        return this.repository.save(data);
     }
 
     @Override
     public List<UrlEntity> listAll() {
-        throw new UnsupportedOperationException("Unimplemented method 'listAll'");
+        return this.repository.findAll();
+
     }
 
     @Override
