@@ -1,17 +1,15 @@
-<br/> 
-<br/> 
 <h2 align="center">
-  <img  height="100" alt="spring boot"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/1200px-Spring_Framework_Logo_2018.svg.png">
+  Desafio Backend: Encurtador de URL
 </h2>
 
+Resolução do desafio proposto pelo repositorio Backend Brasil, confira detalhes [neste link](https://github.com/backend-br/desafios/blob/master/url-shortener/PROBLEM.md).
 
-[Spring Boot](https://spring.io/projects/spring-boot)
+## :rocket: Tecnologias utilizadas
 
-<br>
+* Java
+* Spring Boot
+* Spring Data MongoDB
+* Docker
+* MongoDB
 
-
-## 💻 
-
-    Dedicated repository for learning Java Spring Boot
-<!-- ## ✨ Tecnologias -->
-
+:mag: Baixe o projeto e teste você mesmo na prática.
