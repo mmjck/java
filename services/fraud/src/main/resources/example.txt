@@ -1,0 +1,20 @@
+# server:
+#     port: 8081
+
+# spring:
+#     application:
+#         name: fraud
+#     data:
+#         mongodb:
+#             host: 
+#             username: admin
+#             password: 123
+#             uri: mongodb://host:27017/db
+
+#             # authentication-database: admin
+#             # username: admin
+#             # password: 123
+#             # database: frauds
+#             # port: 27017
+#             # host: localhost
+            
