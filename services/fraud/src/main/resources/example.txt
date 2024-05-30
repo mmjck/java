@@ -1,20 +1,9 @@
-# server:
-#     port: 8081
+spring.application.name=fraud
+server.port=8081
 
-# spring:
-#     application:
-#         name: fraud
-#     data:
-#         mongodb:
-#             host: 
-#             username: admin
-#             password: 123
-#             uri: mongodb://host:27017/db
-
-#             # authentication-database: admin
-#             # username: admin
-#             # password: 123
-#             # database: frauds
-#             # port: 27017
-#             # host: localhost
-            
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=fraud
+spring.data.mongodb.authentication-database=admin
+spring.data.mongodb.username=admin
+spring.data.mongodb.password=123
