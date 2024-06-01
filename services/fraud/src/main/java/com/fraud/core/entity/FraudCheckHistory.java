@@ -1,4 +1,4 @@
-package com.fraud;
+package com.fraud.core.entity;
 
 import java.time.LocalDateTime;
 
