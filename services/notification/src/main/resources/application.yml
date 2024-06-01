@@ -1,0 +1,20 @@
+server:
+    port: 8082
+
+spring:
+    application:
+        name: notification
+    rabbitmq:
+            queue:
+                default.email
+    mail:
+        username:
+            "msantosjck@gmail.com"
+    data:
+        mongodb:
+            host: localhost
+            username: admin
+            password: 123
+            port: 27018
+            database: notification
+
