@@ -19,10 +19,6 @@ public class SendNotificationUseCase {
         try {
             Notification notification = Notification.builder()
                     .customerId(1)
-                    // .subject(dto.getSubject())
-                    // .to(dto.getTo())
-                    // .text(dto.getText())
-                    // .from(dto.getFrom())
                     .build();
 
             this.dataProvider.sendEmail(notification);
