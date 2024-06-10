@@ -4,6 +4,10 @@ server:
 spring:
     application:
         name: customer
+    rabbitmq:
+            addresses: 
+            queue:
+                default.email
     datasource:
         url: jdbc:postgresql://localhost:5432/customer
         username: admin
