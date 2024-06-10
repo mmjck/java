@@ -14,6 +14,9 @@ public class CreateCustomerUseCase {
     @Autowired
     CustomerGateway customerGateway;
 
+    @Autowired
+    SendEmailUseCase sendEmailUseCase;
+
     public Customer execute(CustomerRequestDto data) throws RuntimeException {
         this.customerGateway.findByEmail(data.getEmail()).ifPresent((e) -> {
             throw new UserAlreadyExistsException();
@@ -25,6 +28,8 @@ public class CreateCustomerUseCase {
                 .email(data.getEmail())
                 .build();
 
+
+        sendEmailUseCase.execute(customer);
         return customerGateway.create(customer);
     }
 }
