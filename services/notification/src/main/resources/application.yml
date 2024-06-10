@@ -5,11 +5,22 @@ spring:
     application:
         name: notification
     rabbitmq:
+            addresses: amqps://vycflmbf:VESS6iKwi69C88OGQAJYFDT2_0j9CYaf@beaver.rmq.cloudamqp.com/vycflmbf
             queue:
                 default.email
+
     mail:
-        username:
-            "msantosjck@gmail.com"
+        host: smtp.gmail.com
+        port: 587
+        username: <email>
+        password: <password>
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+
     data:
         mongodb:
             host: localhost
