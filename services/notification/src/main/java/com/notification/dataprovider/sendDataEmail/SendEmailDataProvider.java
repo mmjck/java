@@ -8,13 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.notification.core.entity.Notification;
 
-// @Service
+@Service
 public class SendEmailDataProvider {
     
     @Autowired
     private JavaMailSender sender;
     
-   
     @Value(value = "${spring.mail.username}")
     private String emailFrom;
 
