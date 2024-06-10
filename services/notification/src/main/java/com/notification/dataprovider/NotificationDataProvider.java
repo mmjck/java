@@ -12,10 +12,10 @@ import com.notification.dataprovider.sendDataEmail.SendEmailDataProvider;
 public class NotificationDataProvider implements NotificationGateway {
 
     @Autowired(required = true)
-    NotificationRespository respository;
+    private NotificationRespository respository;
 
-    // @Autowired(required = true)
-    // SendEmailDataProvider sendEmailDataProvider;
+    @Autowired(required = true)
+    private SendEmailDataProvider sendEmailDataProvider;
 
     @Override
     public void create(Notification data) {
@@ -28,8 +28,8 @@ public class NotificationDataProvider implements NotificationGateway {
             
 
             System.out.println(data.toString());
-            // sendEmailDataProvider.send(data);
-            // respository.save(data);
+            sendEmailDataProvider.send(data);
+            respository.save(data);
 
         } catch (Exception e) {
             throw new RuntimeException("error");
