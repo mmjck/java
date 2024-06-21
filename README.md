@@ -7,11 +7,10 @@
 
 [Spring Boot](https://spring.io/projects/spring-boot)
 
-<br>
+### Each developed project can be viewed in its respective branches
 
 
 ## 💻 
 
-    Dedicated repository for learning Java Spring Boot
-<!-- ## ✨ Tecnologias -->
+Dedicated repository for learning Java Spring Boot
 
