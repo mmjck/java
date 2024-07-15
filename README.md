@@ -1,8 +1,13 @@
+
+<img src="https://github.com/user-attachments/assets/6de3acd4-5d01-42db-9504-fd905d737b0f" height="350px"/>
+
 <h3 align="center">
-  Desafio Backend do BTG Pactual
+   Backend Challenge BTG Pactual
 </h3>
 
 This project was developed by according  hexagonal architecture 
+
+![hexagonal-architecture_hu6764515d7030d45af6f7f498c79e292b_50897_956x0_resize_bo](https://github.com/user-attachments/assets/6a2993c4-4a9d-4f90-ad16-22b2a4003c01)
 
 
 <p align="center">
@@ -15,7 +20,7 @@ This project was developed by according  hexagonal architecture
 
 
 
-## :rocket: Tecnologias utilizadas
+## :rocket: Technologies used
 
 * [Java 21](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
 * [Spring Boot](https://spring.io/projects/spring-boot)
@@ -25,6 +30,9 @@ This project was developed by according  hexagonal architecture
 * [MongoDB]()
 * [Docker](https://docs.docker.com/engine/install/)
 
+
+## Flow data
+![Captura de Tela 2024-07-14 às 20 03 53](https://github.com/user-attachments/assets/c8fabf5b-e635-4adc-9214-aad27c8c2131)
 
 
 ## How to run
