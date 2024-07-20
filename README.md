@@ -1,16 +1,53 @@
-<br/> 
-<br/> 
-<h2 align="center">
-  <img  height="100" alt="spring boot"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/1200px-Spring_Framework_Logo_2018.svg.png">
-</h2>
+<h3 align="center">
+   Backend Challenge PicPay
+</h3>
 
 
-[Spring Boot](https://spring.io/projects/spring-boot)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
-### Each developed project can be viewed in its respective branches
+## :rocket: Technologies used
+
+* [Java 21](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* [h2]()
+* [Docker](https://docs.docker.com/engine/install/)
+* [KafKa](https://docs.docker.com/engine/install/)
 
 
-## 💻 
+## How to run
 
-Dedicated repository for learning Java Spring Boot
+- Clone this repository
 
+- Build **Kafka** and image on Docker
+
+```
+docker-compose build -d
+```
+
+- Run application with **Maven**
+
+```
+./mvnw spring-boot:run
+```
+
+The API will be accessible at `http://localhost:8080`
+ 
+
+**API transactions**
+
+```markdown
+POST /transactions - Create transactions 
+
+{
+	"value": "100",
+	"payer": "1",
+	"payee": "2"
+}
+```
+
+```markdown
+GET /transactions - List all transactions
+
+```
