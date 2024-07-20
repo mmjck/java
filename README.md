@@ -1,3 +1,9 @@
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1a41b1f4-0b0b-41fc-98eb-8301dfc5109c" alt="Sublime's custom image"/>
+</p>
+
 <h3 align="center">
    Backend Challenge PicPay
 </h3>
