@@ -1,0 +1,9 @@
+2024-07-20 12:21:35.263462-04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+select u1_0.id,u1_0.email,u1_0.name,u1_0.password from users u1_0 where u1_0.email=? [42104-224]
+2024-07-20 12:23:32.089146-04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+select u1_0.id,u1_0.email,u1_0.name,u1_0.password from users u1_0 where u1_0.email=? [42104-224]
+2024-07-20 12:24:03.843757-04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS USERS ( ID SERIAL PRIMARY KEY, NAME VARCHAR(100), EMAIL VARCHAR(100), ""PASSWORD"" VARCHAR(100), [*])"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS USERS ( ID SERIAL PRIMARY KEY, NAME VARCHAR(100), EMAIL VARCHAR(100), "PASSWORD" VARCHAR(100), ) [42001-224]
