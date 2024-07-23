@@ -1,13 +1,20 @@
 # Email Microservice
 ## Uber Backend Challenge
 
+The challenge is describe on `coding_challenge.mb` file
+
+
+
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
-This project is an API built using **Java, Java Spring, AWS Simple Email Service.**
+## :rocket: Technologies used
 
-The Microservice was developed based on  [Youtube Video](https://youtu.be/eFgeO9M9lLw?si=uyhUXrR-NLEpBW6p), to demonstrate how to solve the [Uber Backend Challenge](https://github.com/uber-archive/coding-challenge-tools/blob/master/coding_challenge.md).
+* [Java](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* [AWS Simple Email Service](https://aws.amazon.com/pt/ses/)
+
 
 ## Table of Contents
 
@@ -26,9 +33,9 @@ The Microservice was developed based on  [Youtube Video](https://youtu.be/eFgeO9
 3. Update `application.properties` puting your AWS Credentials
 
 ```yaml
-aws.region=us-east-1
-aws.accessKeyId=1111111
-aws.secretKey=111111
+aws.region={REGION}
+aws.accessKeyId={ACCESS_KEY_ID}
+aws.secretKey={SECRET_KEY}
 ```
 ## Usage
 
@@ -51,12 +58,4 @@ POST /api/email/send - Send a e-mail from your sender to the destination
   "body": "test"
 }
 ```
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request to the repository.
-
-When contributing to this project, please follow the existing code style, [commit conventions](https://www.conventionalcommits.org/en/v1.0.0/), and submit your changes in a separate branch.
-
-
 
