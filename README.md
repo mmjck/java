@@ -33,10 +33,19 @@
 The API will be accessible at `http://localhost:8080`
  
 
+---
+**GET ME**
 
-`GET /me`
-```markdown
-GET /me - Return user details using token
+`GET api/v1/me`  
+Return user details using. token You need pass **token authorization** in header
+
+
+```json
+{
+	"id": "42",
+	"email": "Erin",
+	"name": "maria1@gmail.com"
+}
 ```
 
 **POST AUTH**
