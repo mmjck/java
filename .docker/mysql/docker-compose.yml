@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    image: 'mysql:latest'
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: z
+      MYSQL_USER: z
+      MYSQL_PASSWORD: z
+    ports:
+      - 3307:3306
+      
