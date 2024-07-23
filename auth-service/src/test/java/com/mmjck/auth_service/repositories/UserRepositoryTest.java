@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.mmjck.auth_service.domain.user.User;
-import com.mmjck.auth_service.dto.RegisterRequestDTO;
+import com.mmjck.auth_service.repositories.jpa.model.UserJpaModel;
 
 import jakarta.persistence.EntityManager;
-import static org.assertj.core.api.Assertions.assertThat;;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;;
 
 @DataJpaTest
 @ActiveProfiles("test")
@@ -21,7 +21,7 @@ public class UserRepositoryTest {
     EntityManager entityManager;
 
     @Autowired
-    UserRepository userRepository;
+    UserJpaRepository repository;
 
 
 
@@ -29,11 +29,8 @@ public class UserRepositoryTest {
     @DisplayName("should get User successfully from database")
     void findUserByDocumentSuccess() {
         String email = "email@gmail.com";
-        RegisterRequestDTO dto = new RegisterRequestDTO("name", email, "teste123");
-        this.createUser(dto);
-
-
-        Optional<User> result = this.userRepository.findByEmail(email);
+        
+        Optional<UserJpaModel> result = this.repository.findByEmail(email);
 
         assertThat(result.isPresent()).isTrue();
 
@@ -43,16 +40,12 @@ public class UserRepositoryTest {
     @DisplayName("should not get User successfully from database when user not exists")
     void findUserByDocumentUserNotExists() {
         String email = "email@gmail.com";
-        Optional<User> result = this.userRepository.findByEmail(email);
+
+        when(this.repository.findByEmail(email)).thenReturn(null);
+        Optional<UserJpaModel> result = this.repository.findByEmail(email);
 
         assertThat(result.isEmpty()).isTrue();
 
     }
 
-
-    private User createUser(RegisterRequestDTO dto){
-        User user = new User("1", dto.name(), dto.password(), dto.email());
-        this.entityManager.persist(user);
-        return user;
-    }
 }
