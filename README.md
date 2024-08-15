@@ -10,20 +10,68 @@
 </center>
 
 
+This project is as service built following the constraints described on challenges repo from [backend-br](https://github.com/backend-br), you can check it out [here](https://github.com/backend-br/desafios/blob/master/loans/PROBLEM.md)
 
 
-### Each developed project can be viewed in its respective branches
+The challenge proposes that we built a web API tha will receive a POST request with an costumer data we should follow some rules to decie wich type of loan this costumer has access to.
+
+- [Spring boot]()
+- [Java 17]()
 
 
-- [PicPay challenge](https://github.com/mmjck/java/tree/picpay-challenge)
-- [BTG challenge](https://github.com/mmjck/java/tree/btg-challenge)
-- [Anota ai Challenge](https://github.com/mmjck/java/tree/challenge-anota-ai)
-- [Uber challenge](https://github.com/mmjck/java/tree/uber-challenge)
-- [Magalu challenge](https://github.com/mmjck/java/tree/magalu-challenge)
-- [Simple Tweet Api](https://github.com/mmjck/java/tree/tweet-api)
+## How to run
 
-**Others you can enter in branchs e see it**
-## 💻 
+- Clone this repository
+```bash
+git clone https://github.com/mmjck/java.git
+```
 
-Dedicated repository for learning Java Spring Boot
+- Enter in directory application
 
+```
+cd loans/
+```
+
+- Run application with **Maven**
+
+```
+./mvnw spring-boot:run
+```
+
+The API will be accessible at `http://localhost:8080`
+ 
+
+
+### example payload request
+
+```json
+{
+  "age": 26,
+  "cpf": "275.484.389-23",
+  "name": "Vuxaywua Zukiagou",
+  "income": 7000.00,
+  "location": "AM"
+}
+```
+
+### example payload response
+
+```json
+{
+  "customer": "Vuxaywua Zukiagou",
+  "loans": [
+    {
+      "type": "PERSONAL",
+      "interest_rate": 4
+    },
+    {
+      "type": "GUARANTEED",
+      "interest_rate": 3
+    },
+    {
+      "type": "CONSIGNMENT",
+      "interest_rate": 2
+    }
+  ]
+}
+```
