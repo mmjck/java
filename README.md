@@ -11,19 +11,64 @@
 
 
 
+- [Spring boot]()
+- [H2]()
+- [Java 17]()
 
-### Each developed project can be viewed in its respective branches
+
+## How to run
+
+- Clone this repository
+```bash
+git clone https://github.com/mmjck/java.git
+```
+
+- Enter in directory application
+
+```
+cd ms/
+```
+
+- Run application with **Maven**
+
+```
+./mvnw spring-boot:run
+```
+
+The API will be accessible at `http://localhost:8080`
+ 
+
+### Requests
+
+`POST /players`
+
+```json
+{
+	"name": "Test",
+	"email": "random@email.com",
+	"phone": "92996991122",
+	"groupType": "AVENGERS"
+}
+```
 
 
-- [PicPay challenge](https://github.com/mmjck/java/tree/picpay-challenge)
-- [BTG challenge](https://github.com/mmjck/java/tree/btg-challenge)
-- [Anota ai Challenge](https://github.com/mmjck/java/tree/challenge-anota-ai)
-- [Uber challenge](https://github.com/mmjck/java/tree/uber-challenge)
-- [Magalu challenge](https://github.com/mmjck/java/tree/magalu-challenge)
-- [Simple Tweet Api](https://github.com/mmjck/java/tree/tweet-api)
+`GET /players`
 
-**Others you can enter in branchs e see it**
-## 💻 
 
-Dedicated repository for learning Java Spring Boot
+```json
+{
+	"total": 1,
+	"data": [
+		{
+			"id": 1,
+			"codiname": "Hulk",
+			"name": "Test",
+			"email": "Antoinette1@example.org",
+			"phone": "92996991122",
+			"groupType": "AVENGERS"
+		},
+  ]
+}
+```
+
 
