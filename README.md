@@ -1,29 +1,18 @@
-<center>
+<h3 align="center">
+  How to create an Annotation in Java with Spring AOP</h3>
+<p align="center">
 
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
-[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
+  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-%2304D361">
+  <img alt="Language: Java" src="https://img.shields.io/badge/language-java-green">
+  <img alt="Version: 1.0" src="https://img.shields.io/badge/version-1.0-yellowgreen">
 
-<h2 align="center">
-  <img  height="100" alt="spring boot"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/1200px-Spring_Framework_Logo_2018.svg.png">
-</h2>
-</center>
+</p>
 
+## :rocket: Technologies used
 
+* Java 21
+* Spring Boot
+* Spring AOP (Aspect Oriented Programming)
+* AspectJ
 
-
-### Each developed project can be viewed in its respective branches
-
-
-- [PicPay challenge](https://github.com/mmjck/java/tree/picpay-challenge)
-- [BTG challenge](https://github.com/mmjck/java/tree/btg-challenge)
-- [Anota ai Challenge](https://github.com/mmjck/java/tree/challenge-anota-ai)
-- [Uber challenge](https://github.com/mmjck/java/tree/uber-challenge)
-- [Magalu challenge](https://github.com/mmjck/java/tree/magalu-challenge)
-- [Simple Tweet Api](https://github.com/mmjck/java/tree/tweet-api)
-
-**Others you can enter in branchs e see it**
-## 💻 
-
-Dedicated repository for learning Java Spring Boot
 
